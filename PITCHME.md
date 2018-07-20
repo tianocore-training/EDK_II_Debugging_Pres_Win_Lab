@@ -939,7 +939,7 @@ Lab 5, add CpuBreakpoint();
 </pre>
 <p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p>
-<p style="line-height:90%"><span style="font-size:0.8em" >VS option to Debug</font>Debug output</span></p>
+<p style="line-height:90%"><span style="font-size:0.8em" >VS option go to the VS Debugger</span></p>
 </div>
 <div class="right">
 <span style="font-size:0.8em" >&nbsp;  </span>
