@@ -354,7 +354,7 @@ Note:
 <br>
 <div class="left">
 <span style="font-size:0.8em" >At the VS Command Prompt</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;` C:/FW/edk2> Build`&nbsp;</span></span><br>
+<p style="line-height:90%"><span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;` C:/FW/edk2> Build`&nbsp;<br>&nbsp;` C:/FW/edk2> Build run`&nbsp;</span></span></p><br>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;` C:/FW/edk2> Build run`&nbsp;</span></span><br>
 <span style="font-size:0.7em" >Run the application from the shell</span><br>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span><br>
