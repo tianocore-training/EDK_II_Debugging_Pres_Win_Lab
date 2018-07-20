@@ -354,12 +354,12 @@ Note:
 <span style="font-size:0.8em" >At the VS Command Prompt</span>
 <pre>
 ```
-  C:/FW/edk2> Build
+    C:/FW/edk2> Build
   C:/FW/edk2> Build Run
 ```
 </pre>
-<p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span></p>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span><br>
+<p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
 <p style="line-height:90%"><span style="font-size:0.8em" >Check the VS Debug output </span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >Exit <br></span>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
@@ -424,10 +424,10 @@ Note:
  C:/FW/edk2> Build Run
 ```
 </pre>
-<span style="font-size:0.7em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span><br>
-<p style="line-height:90%"><span style="font-size:0.7em" >Check the VS Debug output </span></p>
-<p style="line-height:90%"><span style="font-size:0.7em" >Exit <br></span>
+<p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<p style="line-height:90%"><span style="font-size:0.8em" >Check the VS Debug output </span></p>
+<p style="line-height:90%"><span style="font-size:0.8em" >Exit <br></span>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
 </div>
 <div class="right">
@@ -761,10 +761,10 @@ Lab 3 Changing Library
  C:/FW/edk2> Build Run
 ```
 </pre>
-<span style="font-size:0.7em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span><br>
-<p style="line-height:90%"><span style="font-size:0.7em" >See that the output from the Debug statements now goes to the Nt32 console </span></p>
-<p style="line-height:90%"><span style="font-size:0.7em" >Exit <br></span>
+<p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<p style="line-height:90%"><span style="font-size:0.8em" >See that the output from the Debug statements now goes to the Nt32 console </span></p>
+<p style="line-height:90%"><span style="font-size:0.8em" >Exit <br></span>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
 </div>
 <div class="right">
@@ -823,10 +823,10 @@ Lab 4
  C:/FW/edk2> Build Run
 ```
 </pre>
-<span style="font-size:0.7em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span><br>
-<p style="line-height:90%"><span style="font-size:0.7em" >Check - now<font color="red"> *NO* </font>Debug output</span></p>
-<p style="line-height:90%"><span style="font-size:0.7em" >Exit <br></span>
+<p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<p style="line-height:90%"><span style="font-size:0.8em" >Check - now<font color="red"> *NO* </font>Debug output</span></p>
+<p style="line-height:90%"><span style="font-size:0.8em" >Exit <br></span>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
 </div>
 <div class="right">
@@ -885,9 +885,9 @@ Lab 5, add ASSERT
  C:/FW/edk2> Build Run
 ```
 </pre>
-<span style="font-size:0.7em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span><br>
-<p style="line-height:90%"><span style="font-size:0.7em" >Assert in VS Command Prompt</font>Debug output</span></p>
+<p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<p style="line-height:90%"><span style="font-size:0.8em" >Assert in VS Command Prompt</font>Debug output</span></p>
 </div>
 <div class="right">
 <span style="font-size:0.8em" >&nbsp;  </span>
@@ -936,9 +936,9 @@ Lab 5, add CpuBreakpoint();
  C:/FW/edk2> Build Run
 ```
 </pre>
-<span style="font-size:0.7em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span><br>
-<p style="line-height:90%"><span style="font-size:0.7em" >VS option to Debug</font>Debug output</span></p>
+<p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<p style="line-height:90%"><span style="font-size:0.8em" >VS option to Debug</font>Debug output</span></p>
 </div>
 <div class="right">
 <span style="font-size:0.8em" >&nbsp;  </span>
