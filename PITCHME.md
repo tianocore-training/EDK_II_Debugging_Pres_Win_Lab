@@ -909,7 +909,7 @@ Lab 5, add ASSERT
 @title[Lab 5: Nt32 Debug with VS- CPU bp]
 <p align="right"><span class="gold" >Lab 5: Nt32 Debug with VS</span></p>
 <br>
-<p style="line-height:90%"><span style="font-size:0.7em" >Edit the `SampleApp.c`and add the “`CpuBreakpoint();`” Statement and comment out the “`ASSERT`”:  </span></p>
+<p style="line-height:60%"><span style="font-size:0.7em" >Edit the `SampleApp.c` and add the “`CpuBreakpoint();`” Statement and comment out the “`ASSERT`”:  </span></p>
 ```c
     CpuBreakpoint();
 ```
@@ -1048,7 +1048,7 @@ Note:
 <p style="line-height:90%"><span style="font-size:0.9em" >Symptom:  With Windows 7 a CpuBreakpoint() or ASSERT  just exits with an error from the “Build Run” command.  </span></p>
 <p style="line-height:60%"><span style="font-size:0.7em" >Link to fix this issue: <a href="https://github.com/tianocore/tianocore.github.io/wiki/NT32#Debugging_in_Nt32_Emulation_with_Windows_7_and_Visual_Studio_does_not_work">wiki- Issue Debugging Nt32 with Windows 7 and Visual Studio </a></span></p>
 <ul>
- <li> <span style="font-size:0.7em" >Run the RegEdt32 </span> </li>
+ <li> <span style="font-size:0.7em" >Run the `RegEdt32` </span> </li>
  <li> <span style="font-size:0.7em" >Navigate to the `HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\AeDebug` </span> </li>
  <li> <span style="font-size:0.7em" >Add a string value entry called "`Auto`" with a value of "`1`“ </span> </li>
 </ul>
