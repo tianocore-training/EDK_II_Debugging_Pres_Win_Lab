@@ -359,7 +359,7 @@ Note:
 ```
 </pre>
 <p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >Check the VS Debug output </span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >Exit <br></span>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
@@ -425,7 +425,7 @@ Note:
 ```
 </pre>
 <p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >Check the VS Debug output </span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >Exit <br></span>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
@@ -752,7 +752,6 @@ Lab 3 Changing Library
 ---?image=/assets/images/slides/Slide40.JPG
 @title[Lab 3: Build, Run and Test Result]
 <p align="right"><span class="gold" >Lab 3: Build, Run and Test Result</span></p>
-<br>
 <div class="left">
 <span style="font-size:0.8em" >At the VS Command Prompt</span>
 <pre>
@@ -762,7 +761,7 @@ Lab 3 Changing Library
 ```
 </pre>
 <p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >See that the output from the Debug statements now goes to the Nt32 console </span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >Exit <br></span>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
@@ -824,8 +823,8 @@ Lab 4
 ```
 </pre>
 <p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
-<p style="line-height:90%"><span style="font-size:0.8em" >Check - now<font color="red"> *NO* </font>Debug output</span></p>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p>
+<p style="line-height:90%"><span style="font-size:0.8em" >Check - now<font color="red"> <b>NO</b> </font>Debug output</span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >Exit <br></span>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
 </div>
@@ -867,8 +866,9 @@ Note:
 <br>
 <br>
 <br>
+<br>
 
-<span style="font-size:0.7em" >Save `SampleApp.c` </span><br>
+<span style="font-size:0.8em" >Save `SampleApp.c` </span><br>
 
 Note:
 Lab 5, add ASSERT
@@ -886,7 +886,7 @@ Lab 5, add ASSERT
 ```
 </pre>
 <p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >Assert in VS Command Prompt</font>Debug output</span></p>
 </div>
 <div class="right">
@@ -909,7 +909,7 @@ Lab 5, add ASSERT
 @title[Lab 5: Nt32 Debug with VS- CPU bp]
 <p align="right"><span class="gold" >Lab 5: Nt32 Debug with VS</span></p>
 <br>
-<span style="font-size:0.7em" >Edit the `SampleApp.c`and add the “`CpuBreakpoint();`” Statement and comment out the “`ASSERT`”:  </span><br>
+<p style="line-height:90%"><span style="font-size:0.7em" >Edit the `SampleApp.c`and add the “`CpuBreakpoint();`” Statement and comment out the “`ASSERT`”:  </span></p>
 ```c
     CpuBreakpoint();
 ```
@@ -917,8 +917,9 @@ Lab 5, add ASSERT
 <br>
 <br>
 <br>
+<br>
 
-<span style="font-size:0.7em" >Save `SampleApp.c` </span><br>
+<span style="font-size:0.8em" >Save `SampleApp.c` </span><br>
 
 Note:
 Lab 5, add CpuBreakpoint();
@@ -937,7 +938,7 @@ Lab 5, add CpuBreakpoint();
 ```
 </pre>
 <p style="line-height:90%"><span style="font-size:0.8em" >Run the application from the shell</span><br>
-<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span></p>
 <p style="line-height:90%"><span style="font-size:0.8em" >VS option to Debug</font>Debug output</span></p>
 </div>
 <div class="right">
@@ -1043,14 +1044,14 @@ Note:
 ---
 @title[Issue: Debugging in Nt32 Emulation with Windows 7 and VS]
 <p align="right"><span class="gold" >Issue:<br>Debugging in Nt32 Emulation with Windows 7 <br>and Visual Studio does not work?</span></p>
-<br>
+
 <p style="line-height:90%"><span style="font-size:0.9em" >Symptom:  With Windows 7 a CpuBreakpoint() or ASSERT  just exits with an error from the “Build Run” command.  </span></p>
-<span style="font-size:0.9em" >Link to fix this issue: <a href="https://github.com/tianocore/tianocore.github.io/wiki/NT32#Debugging_in_Nt32_Emulation_with_Windows_7_and_Visual_Studio_does_not_work">wiki-Debugging_in_Nt32_Emulation_with_Windows_7_and_Visual_Studio_does_not_work</a>
-<ol>
+<span style="font-size:0.7em" >Link to fix this issue: <a href="https://github.com/tianocore/tianocore.github.io/wiki/NT32#Debugging_in_Nt32_Emulation_with_Windows_7_and_Visual_Studio_does_not_work">wiki- Issue Debugging Nt32 with Windows 7 and Visual Studio </a>
+<ul>
  <li> <span style="font-size:0.7em" >Run the RegEdt32 </span> </li>
  <li> <span style="font-size:0.7em" >Navigate to the HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\AeDebug </span> </li>
  <li> <span style="font-size:0.7em" >Add a string value entry called "Auto" with a value of "1“ </span> </li>
-</ol>
+</ul>
 <span style="font-size:0.9em" >Windows 10  Visual Studio does not seem to have this issue </span>
 
 
