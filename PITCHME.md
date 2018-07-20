@@ -346,7 +346,29 @@ Note:
 
 Note:
 
+---?image=/assets/images/slides/Slide18.JPG
+@title[Lab 1: Build,Run and Test Result ]
+<p align="right"><span class="gold" >Lab 1: Build, Run and Test Result</span></p>
+<br>
+<div class="left">
+<span style="font-size:0.8em" >At the VS Command Prompt</span>
+<pre>
+```
+ C:/FW/edk2> Build
+ C:/FW/edk2> Build Run
+```
+</pre>
+<span style="font-size:0.7em" >Run the application from the shell</span><br>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span><br>
+<p style="line-height:90%"><span style="font-size:0.7em" >Check the VS Debug output </span></p>
+<p style="line-height:90%"><span style="font-size:0.7em" >Exit <br></span>
+<span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
+</div>
+<div class="right">
+<span style="font-size:0.8em" >&nbsp;  </span>
+</div>
 
+Note:
 
 ---?image=/assets/images/slides/Slide18.JPG
 @title[Lab 1 Build, run and Test Result]
@@ -354,12 +376,12 @@ Note:
 <br>
 <div class="left">
 <span style="font-size:0.8em" >At the VS Command Prompt</span><br>
-<p style="line-height:50%"><span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;` C:/FW/edk2> Build`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<p style="line-height:50%"><span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;` C:/FW/edk2> Build`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
 &nbsp;` C:/FW/edk2> Build run`&nbsp;</span></span></p>
-<span style="font-size:0.7em" >Run the application from the shell</span><br>
+<span style="font-size:0.8em" >Run the application from the shell</span><br>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`SampleApp`&nbsp;</span></span><br>
-<p style="line-height:90%"><span style="font-size:0.7em" >Check the VS Debug output </span></p>
-<p style="line-height:90%"><span style="font-size:0.7em" >Exit <br></span>
+<p style="line-height:90%"><span style="font-size:0.8em" >Check the VS Debug output </span></p>
+<p style="line-height:90%"><span style="font-size:0.8em" >Exit <br></span>
 <span style="font-size:0.5em" ><span style="background-color: #101010">&nbsp;<font color="yellow">`Shell> `&nbsp;</font>`Reset`&nbsp;</span></span></p>
 </div>
 <div class="right">
