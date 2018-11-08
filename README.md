@@ -32,4 +32,4 @@
 # EDK_II_Debugging_Win_pres
 Tips and Tricks for Debugging using EDK II w/ Windows Labs
 
-To see the Slides goto https://gitpitch.com/Laurie0131/EDK_II_Debugging_Win_pres/master#/
+To see the Slides goto https://gitpitch.com/tianocore-training/EDK_II_Debugging_Win_Pres/master#/
