@@ -88,22 +88,53 @@ Note:
 - Soft loading driver through UEFI shell
 - Use shell commands to test capabilities
 
-- What are some alternatives if I don’t want to use the debug lib? 
+- What are some alternatives if I don't want to use the debug lib? 
 
-- You can use print statements and soft load my driver to the shell to see what is going on. The downside is that you then have print statements in your code.  This doesn’t work really well if you want to make a release to a customer.
+- You can use print statements and soft load my driver to the shell to see what is going on. The downside is that you then have print statements in your code.  This doesn't work really well if you want to make a release to a customer.
 - You could use a software debugger, and there is a hardware debugger but if they are not available EDK II debug macro might be a good place to start.
 
 - We believe the debug lib is the simplest and cleanest way to get it all working
 
+
 ---
 @title[EDK II DebugLib Library]
 <p align="center"><span style="font-size:01.1em" ><font color="#e49436" ><b>EDK II `DebugLib` Library</b></font></span></p>
+
+@snap[north-west span-60 fragment]
 <br>
-@ul[no-bullet]
-- <span style="font-size:01.0em" >&nbsp;<span style="background-color: #fdb819"><b>&nbsp;&nbsp;`Debug` and `Assert` macros in code &nbsp;&nbsp;</b></span></span></p><br><br>
-- <span style="font-size:01.0em" >&nbsp;<span style="background-color: #92d050">&nbsp;&nbsp;<b>Enable/disable when compiled ("target.txt")</b>&nbsp;&nbsp;</span></span><br><br><br>
-- <span style="font-size:01.0em" >&nbsp;<span style="background-color: #7030a0">&nbsp;&nbsp;<b>Connects a Host to capture debug messages &nbsp;</b>&nbsp;&nbsp;</span></span>
-@ulend
+<br>
+<br>
+@box[bg-gold2 text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" >Debug and Assert macros in code<br>&nbsp;</span></p>)
+<br>
+@snapend
+
+
+@snap[north-east span-80 fragment]
+<br>
+<br>
+<br>
+<p style="line-height:50%" ><br><br><br><br>&nbsp;</p>
+@box[bg-green-pp text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" >Enable/disable when compiled &lpar;"target.txt"&rpar;<br>&nbsp;</span></p>)
+<br>
+@snapend
+
+
+@snap[north-west span-80 fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:50%" ><br><br><br><br><br>&nbsp;</p>
+@box[bg-purple-pp text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" > Connects a Host to capture debug messages <br>&nbsp;</span></p>)
+<br>
+@snapend
+
+
+
+
+
 
 Note:
 - DebugLib library is clean & very portable
@@ -111,10 +142,12 @@ Note:
 - Enable/disable when compiled (target.txt)
 - Can connect a 2nd PC to capture debug messages 
 
-- The main message-- the debug lib library is portable, it’s clean, it’s very easy to use, and we believe it’s the easiest way to do debugging on a UEFI platform.
+- The main message-- the debug lib library is portable, it's clean, it's very easy to use, and we believe it's the easiest way to do debugging on a UEFI platform.
 
 - The debug lib library has the debug and assert macros. 
 - There are library instances that allow you to use a second PC to capture all messages coming out
+
+
 
 
 
@@ -126,10 +159,38 @@ Note:
 
 Note:
 
-
----?image=/assets/images/slides/Slide7.JPG
+---
 @title[Using PCDs to Configure DebugLib]
-<p align="right"><span class="gold" >Using PCDs to Configure `DebugLib`</span></p>
+<p align="right"><span class="gold" ><b>Using PCDs to Configure `DebugLib`</b></span></p>
+
+@snap[west span-100 ]
+<br>
+@box[bg-grey-05 text-white my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " ><br><br><br><br><br><br>&nbsp;&nbsp;</span></p>)
+@snapend
+
+@snap[north-west span-100 ]
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:70%" ><span style="font-size:01.0em; font-weight: bold;" ><font color="#87E2A9">MdePkg Debug Library Class </font><br></span></p>
+<br>
+<p style="line-height:60%" align="left"><span style="font-size:0.60em; font-family:Consolas; " >
+&nbsp;&nbsp;
+[PcdsFixedAtBuild. PcdsPatchableInModule]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  gEfiMdePkgTokenSpaceGuid.@color[red](PcdDebugPropertyMask)|0x1f<br>
+&nbsp;&nbsp;&nbsp;&nbsp;  gEfiMdePkgTokenSpaceGuid.@color[red](PcdDebugPrintErrorLevel)|0x80000040<br>
+</span></p>
+
+@snapend
+
+
+
+@snap[south span-90 fragment]
+@box[bg-purple-pp text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" > PCDs set which drivers report errors and change what messages get printed<br>&nbsp;</span></p>)
+<br>
+@snapend
+
 
 Note:
 
@@ -158,9 +219,46 @@ Note:
 - Per the example at the bottom of the slide, the assignment for PcdDebugPropertyMask is 0x1f and PcdDebugPrintErrorLevel is 0x80000040 . These are the values for these two PCDs. 
 
 
----?image=/assets/images/slides/Slide8.JPG
+---
 @title[PcdDebugPropertyMask Values]
-<p align="right"><span class="gold" >`PcdDebugPropertyMask` Values</span></p>
+<p align="right"><span class="gold" ><b>@color[white](`PcdDebugPropertyMask`) Values</b></span></p>
+
+
+@snap[north-west span-100 ]
+<br>
+<br>
+<p style="line-height:30%" align="left"><br>&nbsp;</p>
+@box[bg-grey-05 text-white my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " ><br><b><b><b><br><br><br><br><br><br>&nbsp;&nbsp;</span></p>)
+@snapend
+
+@snap[north-west span-100 ]
+<br>
+<br>
+<p style="line-height:70%" ><span style="font-size:01.0em;" ><font color="#87E2A9"><b>Debugging Features Enabled </b></font><br></span></p>
+<p style="line-height:60%" align="left"><span style="font-size:0.550em; font-family:Consolas; " >
+&nbsp;&nbsp;
+&nbsp;&nbsp;&num;define DEBUG_PROPERTY_DEBUG_ASSERT_ENABLED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            0x01<br>&nbsp;&nbsp;
+&nbsp;&nbsp;&num;define DEBUG_PROPERTY_DEBUG_PRINT_ENABLED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;       0x02<br>&nbsp;&nbsp;
+&nbsp;&nbsp;&num;define DEBUG_PROPERTY_DEBUG_CODE_ENABLED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       0x04<br>&nbsp;&nbsp;
+&nbsp;&nbsp;&num;define DEBUG_PROPERTY_CLEAR_MEMORY_ENABLED &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            0x08<br>&nbsp;&nbsp;
+&nbsp;&nbsp;&num;define DEBUG_PROPERTY_ASSERT_BREAKPOINT_ENABLED &nbsp;                   0x10<br>&nbsp;&nbsp;
+&nbsp;&nbsp;&num;define DEBUG_PROPERTY_ASSERT_DEADLOOP_ENABLED &nbsp;&nbsp;&nbsp;              0x20
+</span></p>
+
+<p style="line-height:60%" align="left"><span style="font-size:0.50em;"> <font color="yellow">Default value in `OvmfPkg` is `0x2f`<br>Default value in `Nt32Pkg` is `0x1f`</font></span></p>
+@snapend
+
+
+
+
+@snap[south span-90 fragment]
+
+@box[bg-purple-pp text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" > Determines which debugging features are enabled.<br>&nbsp;</span></p>)
+<br>
+@snapend
+
+
+
 
 Note:
 - Enables debugging features
@@ -198,10 +296,50 @@ Note:
 
 
 
-
----?image=/assets/images/slides/Slide9.JPG
+---
 @title[PcdDebugPrintErrorLevel Values]
-<p align="right"><span class="gold" >`PcdDebugPrintErrorLevel` Values</span></p>
+<p align="right"><span class="gold" ><b>@color[white](`PcdDebugPrintErrorLevel`) Values</b></span></p>
+<p style="line-height:70%" ><span style="font-size:01.0em;" ><font color="#87E2A9"><b>Debugging Messages Displayed</b></font><br></span></p>
+
+```
+ #define DEBUG_INIT      0x00000001  // Initialization
+ #define DEBUG_WARN      0x00000002  // Warnings
+ #define DEBUG_LOAD      0x00000004  // Load events
+ #define DEBUG_FS        0x00000008  // EFI File system
+ #define DEBUG_POOL      0x00000010  // Alloc & Free's  Pool
+ #define DEBUG_PAGE      0x00000020  // Alloc & Free's  Page
+ #define DEBUG_INFO      0x00000040  // Verbose
+ #define DEBUG_DISPATCH  0x00000080  // PEI/DXE Dispatchers
+ #define DEBUG_VARIABLE  0x00000100  // Variable
+ #define DEBUG_BM        0x00000400  // Boot Manager
+ #define DEBUG_BLKIO     0x00001000  // BlkIo Driver
+ #define DEBUG_NET       0x00004000  // SNI Driver
+ #define DEBUG_UNDI      0x00010000  // UNDI Driver
+ #define DEBUG_LOADFILE  0x00020000  // Load File 
+ #define DEBUG_EVENT     0x00080000  // Event messages
+ #define DEBUG_ERROR     0x80000000  // Error
+
+    Aliases EFI_D_INIT == DEBUG_INIT, etc...
+ 
+```
+
+<p style="line-height:60%" align="left"><span style="font-size:0.50em;"> <font color="yellow">
+Default value in `OvmfPkg` is `0x8000004f`  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Default value in `Nt32Pkg` is `0x80000040`</font></span></p>
+
+
+
+
+@snap[south span-90 fragment]
+
+@box[bg-purple-pp text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" > Determines which messages we want to print<br>&nbsp;</span></p>)
+
+@snapend
+
+
+
+
+
+
 
 Note:
 - Determines if each print message is displayed
@@ -211,73 +349,138 @@ Note:
 
 - This has to do with what messages we want to come out
 
-- Let’s say you have a debug print enabled as in the previous slide. 
+- Let's say you have a debug print enabled as in the previous slide. 
    - You must state what message type you want to print out
 
 - You can assign your own values to this debug print error level.  
 - However, these are the guideline values that these drivers use in terms of what their debug output messaging will be.
 
-
-
----?image=/assets/images/slides/Slide10.JPG
-<!-- .slide: data-transition="none" -->
+---
 @title[Changing PCD Values ]
-<p align="right"><span class="gold" >Changing PCD Values</span></p>
+<p align="right"><span class="gold" ><b>Changing PCD Values</b></span></p>
+@snap[north-west span-100 fragment]
+<br>
+<br>
+<p align="left" style="line-height:80%"><span style="font-size:0.9em; ">@color[yellow](Change all instances of a PCD in platform DSC)</span></p>
+@box[bg-black text-white rounded my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " >&nbsp;&nbsp;[PcdFixedAtBuild]<br>&nbsp;&nbsp;gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x00000000<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
 
+@snap[north-west span-90 rounded fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p align="left" style="line-height:80%"><span style="font-size:0.9em; ">@color[yellow](Change a single module's PCD values in the DSC)</span></p>
+@box[bg-black text-white rounded my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " >&nbsp;&nbsp;MyPath/MyModule.inf&nbsp;{<br>&nbsp;&nbsp;&lt;PcdFixedAtBuild&gt;<br>&nbsp;&nbsp;gEfiMdePkgTokenSpaceGuid.PcdDebugPrintErrorLevel|0x00000000<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+
+
+@snap[south span-100 fragment]
+
+@box[bg-purple-pp text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" > Minimize message output and minimize size increase<br>&nbsp;</span></p>)
+
+@snapend
 
 Note:
 - Use different PCD values only on the module being debugged
 - Minimize message output and minimize size increase
 
-+++?image=/assets/images/slides/Slide11.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Changing PCD Values 02 ]
-<p align="right"><span class="gold" >Changing PCD Values</span></p>
 
 
-Note:
-- Use different PCD values only on the module being debugged
-- Minimize message output and minimize size increase
-
-
-
----?image=/assets/images/slides/Slide12.JPG
+---
 @title[Other Debug Related Libraries  ]
-<p align="right"><span class="gold" >Other Debug Related Libraries </span></p>
+<p align="right"><span class="gold" ><b>Other Debug Related Libraries </b></span></p>
+
+@snap[north-west span-90 fragment]
+<br>
+<br>
+@box[bg-green-pp text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" >`ReportStatusCodeLib` - Progress codes<br>&nbsp;</span></p>)
+<pre>
+```
+  gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask
+```
+</pre>
+<br>
+@snapend
+
+
+@snap[north-west span-90 fragment]
+<br>
+<br>
+<br>
+<p style="line-height:50%" ><br><br><br><br>&nbsp;</p>
+@box[bg-royal text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" >`PostCodeLib` - Enable Post codes<br>&nbsp;</span></p>)
+<pre>
+```
+  gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask
+
+```
+</pre>
+<br>
+@snapend
+
+
+@snap[north-west span-90 fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:50%" ><br><br><br><br><br>&nbsp;</p>
+@box[bg-gold2 text-white rounded my-box-pad2  ](<p style="line-height:70%" ><span style="font-size:0.9em; font-weight: bold;" >`PerformanceLib` - Enable Measurement <br>&nbsp;</span></p>)
+<pre>
+```
+  gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask
+
+```
+</pre>
+<br>
+@snapend
+
+
+
 
 Note:
 
-- ReportStatusCodeLib –Progress codes
+- ReportStatusCodeLib - Progress codes
 	- gEfiMdePkgTokenSpaceGuid.PcdReportStatusCodePropertyMask
-- PostCodeLib – Enable Post codes
+- PostCodeLib -  Enable Post codes
 	- gEfiMdePkgTokenSpaceGuid.PcdPostCodePropertyMask
-- PerformanceLib – Enable Measurement
+- PerformanceLib -  Enable Measurement
 	- gEfiMdePkgTokenSpaceGuid.PcdPerformanceLibraryPropertyMask
+
 
 ---?image=/assets/images/slides/Slide_LabSec.JPG
 @title[Lab 1: Adding Debug Statements]
 <br>
 <br>
-<p align="Left"><span class="gold" >Lab 1: Adding Debug Statements</span></p>
+<p align="Left"><span class="gold" ><b>Lab 1: Adding Debug Statements</b></span></p>
 <br>
 <div class="left1">
-<span style="font-size:0.8em" >In this lab, you’ll add debug statements to the previous lab's SampleApp UEFI Shell application</span>
+<span style="font-size:0.8em" >In this lab, you'll add debug statements to the previous lab's SampleApp UEFI Shell application</span>
 </div>
 <div class="right1">
 <span style="font-size:0.8em" >&nbsp;  </span>
 </div>
 
 Note:
-In this lab, you’ll learn how to add debug statements.  
+In this lab, you'll learn how to add debug statements.  
 This lab uses code from a previous exercise as a starting point (refer to  Writing Simple UEFI Applications).  Before proceeding, verify that the SampleApp code is present in your workspace and that the code references the OvmfPkgX64.dsc file.
 
 ---
 @title[Lab 1: Catch Up SampleApp]
-<p align="right"><span class="gold" >Lab 1: Catch up from previous lab</span></p>
+<p align="right"><span class="gold" ><b>Lab 1: Catch up from previous lab</b></span></p>
 <span style="font-size:0.8em" >Skip if Lab <a href="https://gitpitch.com/tianocore-training/Writing_UEFI_App_Win_Lab/master#/">Writing UEFI App Lab</a> completed</span>
-<ul>
-   <li><span style="font-size:0.8em" >Perform <a href="https://gitpitch.com/tianocore-training/Platform_Build_Win_LAB/master#/">Lab Setup</a> from previous Labs  </span></li>
+<ul style="list-style-type:disc; line-height:0.8;">
+   <li><span style="font-size:0.8em" >Perform <a href="https://gitpitch.com/tianocore-training/Platform_Build_Win_LAB/master#/2">Lab Setup</a> from previous Labs  </span></li>
    <li><span style="font-size:0.8em" >Create a Directory under the workspace `C:/FW/edk2  ` : "`SampleApp`"</span></li>
    <li><span style="font-size:0.8em" >Copy contents of `C:/../FW/LabSampleCode/SampleAppDebug` to `C:/FW/edk2/SampleApp`</span></li>
    <li><span style="font-size:0.8em" >Open `C:/FW/edk2/Nt32Pkg/Nt32Pkg.dsc`</span></li>
@@ -295,12 +498,12 @@ Note:
 
 ---
 @title[Lab 1: Add debug statements SampleApp]
-<p align="right"><span class="gold" >Lab 1: Add debug statments to SampleApp</span></p>
+<p align="right"><span class="gold" ><b>Lab 1: Add debug statments to SampleApp</b></span></p>
 <br>
 <ul>
   <li><span style="font-size:0.8em" >Open a VS Command Prompt and type `cd C:/FW/edk2` then <br></span>&nbsp;&nbsp;&nbsp;<span style="font-size:0.6em" ><span style="background-color: #101010">&nbsp;` C:/FW/edk2> edksetup `&nbsp;</span> </span></li><br>
   <li><span style="font-size:0.8em" >Open `C:/FW/edk/SampleApp/SampleApp.c` </span></li><br>
-  <li><span style="font-size:0.8em" >Add the following to the include statements at the top of the file after below the last “`#include`” statement: </span></li>
+  <li><span style="font-size:0.8em" >Add the following to the include statements at the top of the file after below the last "`#include`" statement: </span></li>
 <pre>
 ```
  #include <Library/DebugLib.h>
@@ -312,8 +515,10 @@ Note:
 
 ---
 @title[Lab 1: Add debug statements SampleApp 02]
-<p align="right"><span class="gold" >Lab 1: Add debug statements to SampleApp</span></p>
-<p style="line-height:90%"><span style="font-size:0.7em" >Locate the `UefiMain` function. Then copy and paste the following code after the <span style="background-color: #101010">&nbsp;“`EFI_INPUT_KEY  KEY;`”</span> statement: and before the first <span style="background-color: #101010">&nbsp;`Print()` </span>statement </span></p>
+<p align="right"><span class="gold" ><b>Lab 1: Add debug statements to SampleApp</b></span></p>
+<p style="line-height:85%"><span style="font-size:0.7em" >Locate the `UefiMain` function. Then copy and paste the following 
+code after the <span style="background-color: #101010">&nbsp;"`EFI_INPUT_KEY  KEY;`"</span> statement: and before the first <span style="background-color: #101010">&nbsp;`Print()` </span>statement </span></p>
+
 ```c
 DEBUG ((0xffffffff, "\n\nUEFI Base Training DEBUG DEMO\n") );
 DEBUG ((0xffffffff, "0xffffffff USING DEBUG ALL Mask Bits Set\n") );
@@ -342,13 +547,13 @@ Note:
 
 ---?image=/assets/images/slides/Slide17.JPG
 @title[Lab 1: Add debug statements SampleApp 03]
-<p align="right"><span class="gold" >Lab 1: Add debug statements to SampleApp</span></p>
+<p align="right"><span class="gold" ><b>Lab 1: Add debug statements to SampleApp</b></span></p>
 
 Note:
 
 ---?image=/assets/images/slides/Slide18.JPG
 @title[Lab 1: Build,Run and Test Result ]
-<p align="right"><span class="gold" >Lab 1: Build, Run and Test Result</span></p>
+<p align="right"><span class="gold" ><b>Lab 1: Build, Run and Test Result</b></span></p>
 <br>
 <div class="left">
 <span style="font-size:0.8em" >At the VS Command Prompt</span>
@@ -377,24 +582,24 @@ Notice the changes in DEBUG output for SampleApp in the Visual Studio Command Pr
 @title[Lab 2: Changing PCD Value]
 <br>
 <br>
-<p align="Left"><span class="gold" >Lab 2: Changing PCD Value</span></p>
+<p align="Left"><span class="gold" ><b>Lab 2: Changing PCD Value</b></span></p>
 <br>
 <div class="left1">
-<span style="font-size:0.8em" >In this lab, you’ll  learn how to use PCD values to change debugging capabilities. </span>
+<span style="font-size:0.8em" >In this lab, you'll  learn how to use PCD values to change debugging capabilities. </span>
 </div>
 <div class="right1">
 <span style="font-size:0.8em" >&nbsp;  </span>
 </div>
 
 Note:
-In this lab, you’ll learn how to use PCD values to change debugging capabilities.  The previous lab,  Adding Debug Statements, did not display all the DEBUG messages added to SampleApp.c.  This lab shows how to change this behavior.
+In this lab, you'll learn how to use PCD values to change debugging capabilities.  The previous lab,  Adding Debug Statements, did not display all the DEBUG messages added to SampleApp.c.  This lab shows how to change this behavior.
 
 
 
 
 ---
 @title[Lab 2: Change PCDs for SampleApp]
-<p align="right"><span class="gold" >Lab 2: Change PCDs for SampleApp</span></p>
+<p align="right"><span class="gold" ><b>Lab 2: Change PCDs for SampleApp</b></span></p>
 <br>
 <br>
 <span style="font-size:0.7em" >Open `C:/FW/edk/Nt32Pkg/Nt32Pkg.dsc` </span><br>
@@ -414,7 +619,7 @@ Note:
 
 ---?image=/assets/images/slides/Slide21.JPG
 @title[Lab 2: Build,Run and Test Result ]
-<p align="right"><span class="gold" >Lab 2: Build, Run and Test Result</span></p>
+<p align="right"><span class="gold" ><b>Lab 2: Build, Run and Test Result</b></span></p>
 <br>
 <div class="left">
 <span style="font-size:0.8em" >At the VS Command Prompt</span>
@@ -446,111 +651,126 @@ Notice the changes in DEBUG output for SampleApp in the Visual Studio Command Pr
 
 Note:
 
----?image=/assets/images/slides/Slide23.JPG
-<!-- .slide: data-transition="none" -->
+---
 @title[Precedence for Debug Flags Hierarchy]
-<p align="right"><span class="gold" >Precedence for Debug Flags Hierarchy</span></p>
+<p align="right"><span class="gold" ><b>Precedence for Debug Flags Hierarchy</b></span></p>
+
+@snap[north span-85 fragment]
+<br>
+<br>
+@box[bg-green-pp text-white waved   ](<p style="line-height:90%" ><span style="font-size:01.0125em; font-weight: bold;" >Tools_def.txt<br><br>&nbsp;</span></p>)
+@snapend
+
+@snap[north span-70 fragment]
+<br>
+<br>
+<br>
+<br>
+@box[bg-navy text-white waved   ](<p style="line-height:90%" ><span style="font-size:01.0em; font-weight: bold;" >DSC `[BuildOptions]` section &lpar;platform scope&rpar;<br>&nbsp;</span></p>)
+@snapend
+
+@snap[north-west span-50 fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+@box[bg-purple-pp text-white waved  ](<p style="line-height:90%" ><span style="font-size:01.0em; font-weight: bold;" >INF `[BuildOptions]` section <br>&nbsp;</span></p>)
+@snapend
+
+
+@snap[north-east span-50 fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+@box[bg-lt-blue-pp text-white waved  ](<p style="line-height:90%" ><span style="font-size:01.0em; font-weight: bold;" >DSC  &lt;`BuildOptions`&gt; under a specific module <br>&nbsp;</span></p>)
+@snapend
+
+
+@snap[south span-70 fragment]
+@box[bg-grey-05 text-white rounded my-box-pad2](<p style="line-height:60%" align="left" ><span style="font-size:0.7em; " >&nbsp;&nbsp; 1. Tools_def.txt<br>&nbsp;&nbsp; 2. DSC [BuildOptions] section  &lpar;platform scope&rpar;<br>&nbsp;&nbsp; 3. INF [BuildOptions] section &lpar;module scope&rpar;<br>&nbsp;&nbsp; 4. DSC &lt;BuildOptions&gt; under a specific module<br>&nbsp;&nbsp;</span></p>)
+<br>
+<br>
+@snapend
 
 Note:
-
-
-+++?image=/assets/images/slides/Slide24.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Precedence for Debug Flags Hierarchy 02]
-<p align="right"><span class="gold" >Precedence for Debug Flags Hierarchy</span></p>
-
-Note:
-
 - think of the rules for compiler switches and options as a pyramid
- - Pyramid top overrides middle, middle overrides the bottom
+- Pyramid top overrides middle, middle overrides the bottom
 
 
 
-+++?image=/assets/images/slides/Slide25.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Precedence for Debug Flags Hierarchy 03]
-<p align="right"><span class="gold" >Precedence for Debug Flags Hierarchy</span></p>
+- Tools_def.txt
+  - Baseline set of command line options for compiler and linker
+- INF [BuildOptions] section
+  - Append onto existing command line with "="
+  - Replace entire existing command line with "=="
 
-Note:
+- DSC [BuildOptions] section (platform scope)
+  - Same usage
 
-
-+++?image=/assets/images/slides/Slide26.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Precedence for Debug Flags Hierarchy 04]
-<p align="right"><span class="gold" >Precedence for Debug Flags Hierarchy</span></p>
-
-Note:
+- DSC <BuildOptions> under a specific module
+  - Same usage 
 
 
-+++?image=/assets/images/slides/Slide27.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Precedence for Debug Flags Hierarchy 05]
-<p align="right"><span class="gold" >Precedence for Debug Flags Hierarchy</span></p>
 
-Note:
-
-
----?image=/assets/images/slides/Slide28.JPG
-<!-- .slide: data-transition="none" -->
+---
 @title[Compiler / Linker Flags]
-<p align="right"><span class="gold" >Compiler / Linker Flags</span></p>
+<p align="right"><span class="gold" ><b>Compiler / Linker Flags</b></span></p>
+
+@snap[north-west span-100]
+<br>
+<br>
+<p align="left" style="line-height:80%"><span style="font-size:0.9em; ">@color[#87E2A9](Example from Microsoft* compiler to turn off optimization)</span></p>
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " >&nbsp;&nbsp;"`/02` " to "`/01`" requires "`/0d /01`"</span></p>
+<br>
+@snapend
+
+@snap[north-west span-90 rounded fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<p align="left" style="line-height:80%"><span style="font-size:0.9em; ">@color[yellow](Change common flags in platform DSC)</span></p>
+@box[bg-grey-05 text-white rounded my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " >&nbsp;&nbsp;[BuildOptions]&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;DEBUG_*_IA32_CC_FLAGS = /Od /Oy-<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+
+@snap[north-west span-90 rounded fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p align="left" style="line-height:80%"><span style="font-size:0.9em; ">@color[yellow](Change a single module's flags in the DSC)</span></p>
+@box[bg-grey-05 text-white rounded my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " >&nbsp;&nbsp;MyPath/MyModule.inf&nbsp;{<br>&nbsp;&nbsp;&lt;BuildOptions&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;DEBUG_*_IA32_CC_FLAGS = /Od /Oy-<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+
+
 
 Note:
 - Change common flags in platform DSC
  - [BuildOptions]
    - DEBUG_*_IA32_CC_FLAGS = /Od
 
-- Change a single module’s flags in DSC
+- Change a single module's flags in DSC
  - MyPath/MyModule.inf {
   - <BuildOptions>
      - DEBUG_*_IA32_CC_FLAGS = /Od 
  - }
 
-- Change optimizations, etc…
-
-
-+++?image=/assets/images/slides/Slide29.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Compiler / Linker Flags 02]
-<p align="right"><span class="gold" >Compiler / Linker Flags</span></p>
-
-Note:
-- Change common flags in platform DSC
- - [BuildOptions]
-   - DEBUG_*_IA32_CC_FLAGS = /Od
-
-- Change a single module’s flags in DSC
- - MyPath/MyModule.inf {
-  - <BuildOptions>
-     - DEBUG_*_IA32_CC_FLAGS = /Od 
- - }
-
-- Change optimizations, etc…
-
-
-+++?image=/assets/images/slides/Slide30.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Compiler / Linker Flags 03]
-<p align="right"><span class="gold" >Compiler / Linker Flags</span></p>
-
-Note:
-- Change common flags in platform DSC
- - [BuildOptions]
-   - DEBUG_*_IA32_CC_FLAGS = /Od
-
-- Change a single module’s flags in DSC
- - MyPath/MyModule.inf {
-  - <BuildOptions>
-     - DEBUG_*_IA32_CC_FLAGS = /Od 
- - }
-
-- Change optimizations, etc…
+- Change optimizations, etc. . .
 
 
 ---?image=assets/images/binary-strings-black2.jpg
@@ -562,9 +782,46 @@ Note:
 Note:
 
 
----?image=/assets/images/slides/Slide32.JPG
+---?image=/assets/images/slides/Slide25_2.JPG
 @title[DebugLib Class]
 <p align="center"><span class="gold" ><b>The `DebugLib` Class</b></span></p>
+
+@snap[north-west span-85]
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br>&nbsp;</span></p>
+@box[bg-ubuntu text-white my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.70em; font-family:Consolas; " >&nbsp;&nbsp;MdePkg/Include/Library/DebugLib.h<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+
+@snap[north-west span-80 rounded fragment]
+<br>
+<br>
+<br>
+<br>
+<p align="left" style="line-height:60%"><span style="font-size:0.9em; "><font color="#87E2A9"><b>Macros</b><br>@size[0.65em](&lpar;where PCDs ard checked&rpar;)</font></span></p>
+@box[bg-grey-05 text-white rounded my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " >&nbsp;&nbsp;ASSERT &lpar;Expression&rpar;<br>&nbsp;&nbsp;DEBUG &lpar;Expression&rpar;<br>&nbsp;&nbsp;ASSERT_EFI_ERROR &lpar;StatusParameter&rpar;<br>&nbsp;&nbsp;ASSERT_PROTOCOL_ALREADY_INSTALLED&lpar;. . .&rpar;<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+
+
+@snap[north-west span-80 rounded fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p align="left" style="line-height:80%"><span style="font-size:0.9em; "><font color="#87E2A9"><b>Advanced Macros</b></font></span></p>
+@box[bg-grey-05 text-white rounded my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " >&nbsp;&nbsp;DEBUG_CODE &lpar;Expression&rpar;<br>&nbsp;&nbsp;DEBUG_CODE_BEGIN&lpar;&rpar; & DEBUG_CODE_END&lpar;&rpar;<br>&nbsp;&nbsp;DEBUG_CLEAR_MEMORY&lpar;...&rpar;<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+
 
 Note:
 
@@ -578,28 +835,59 @@ Note:
   - ASSERT (Expression)
   - DEBUG (Expression)
   - ASSERT_EFI_ERROR (StatusParameter)
-  - ASSERT_PROTOCOL_ALREADY_INSTALLED(…)
+  - ASSERT_PROTOCOL_ALREADY_INSTALLED(...)
 
   - Advanced Macros:
   - DEBUG_CODE (Expression)
   - DEBUG_CODE_BEGIN() & DEBUG_CODE_END()
-  - DEBUG_CLEAR_MEMORY(…)
+  - DEBUG_CLEAR_MEMORY(...)
 
 
 
----?image=/assets/images/slides/Slide33.JPG
+---?image=/assets/images/slides/Slide26_1.JPG
 @title[DebugLib Instances (1)]
 <br>
 <p align="left"><span class="gold" ><b>`DebugLib` Instances (1)</b></span></p>
-<br>
-<br>
-<ul>
-  <li><span style="font-size:0.9em">Instance of `DebugLib`   </span></li>
-  <li><span style="font-size:0.9em">Uses `SerialPortLib` class to send debug output to serial port</span></li>
-  <li><span style="font-size:0.9em">Default for many platforms:  `BaseDebugLibNull`  </span></li>
-  <li><span style="font-size:0.9em">OVMF uses it with Switch `DEBUG_ON_SERIAL_PORT`  </span></li>
-</ul>
 
+@snap[north-west span-75]
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br><br><br><br>&nbsp;</span></p>
+@box[bg-ubuntu text-white my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.70em; font-family:Consolas; " >&nbsp;&nbsp;BaseDebugLibSerialPort<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+@snap[north-west span-100]
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br>&nbsp;</span></p>
+@box[bg-blue-pp text-white my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.70em; font-family:Consolas; " >&nbsp;&nbsp;<br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+@snap[north-west span-90]
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br><br>&nbsp;</span></p>
+<ul>
+  <li><span style="font-size:0.8em">Instance of `DebugLib`   </span></li>
+  <li><span style="font-size:0.8em">Uses `SerialPortLib` class to send debug output to serial port</span></li>
+  <li><span style="font-size:0.8em">Default for many platforms:  `BaseDebugLibNull`  </span></li>
+  <li><span style="font-size:0.8em">OVMF uses it with Switch `DEBUG_ON_SERIAL_PORT`  </span></li>
+</ul>
+@snapend
+
+@snap[south-east span-20]
+![implementation](/assets/images/Implementation.png)
+@snapend
+
+
+@snap[south-east span-20]
+<p style="line-height:40%" align="left">@color[black](&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1)&nbsp;&nbsp;&nbsp;<br><br>&nbsp;</p>
+<br>
+@snapend
 
 Note:
 - debugLib library instances
@@ -613,18 +901,52 @@ Note:
 - At this point the only serial port library instance that is in the public domain or open source is the DUET version 
 
 
----?image=/assets/images/slides/Slide34.JPG
+
+---?image=/assets/images/slides/Slide26_1.JPG
 @title[DebugLib Instances (2)]
 <br>
 <p align="left"><span class="gold" ><b>`DebugLib` Instances (2)</b></span></p>
-<br>
-<br>
-<br>
-<ul>
-  <li><span style="font-size:0.9em">Instances of `DebugLib` (for apps and drivers)</span></li><br>
-  <li><span style="font-size:0.9em">Send all debug output to console/debug console</span></li>
-</ul>
 
+
+
+@snap[north-west span-80]
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br><br><br><br>&nbsp;</span></p>
+@box[bg-ubuntu text-white my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.70em; font-family:Consolas; " >&nbsp;&nbsp;UefiDebugLibConOut&nbsp;&nbsp;  UefiDebugLibStdErr<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+@snap[north-west span-100]
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br>&nbsp;</span></p>
+@box[bg-navy text-white my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.70em; font-family:Consolas; " >&nbsp;&nbsp;<br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+@snap[north-west span-90]
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br><br>&nbsp;</span></p>
+<ul>
+  <li><span style="font-size:0.8em">Instances of `DebugLib` (for apps and drivers)</span></li><br>
+  <li><span style="font-size:0.8em">Send all debug output to console/debug console</span></li>
+</ul>
+@snapend
+
+@snap[south-east span-20]
+![implementation](/assets/images/Implementation.png)
+@snapend
+
+
+
+@snap[south-east span-20]
+<p style="line-height:40%" align="left">@color[black](&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2)&nbsp;&nbsp;&nbsp;<br><br>&nbsp;</p>
+<br>
+@snapend
 
 Note:
 - UefiDebugLibConOut   UefiDebugLibStdErr
@@ -634,33 +956,66 @@ Note:
 - Make sure that the console is visible
 
 
----?image=/assets/images/slides/Slide35.JPG
+---?image=/assets/images/slides/Slide26_1.JPG
 @title[DebugLib Instances (3)]
 <br>
 <p align="left"><span class="gold" ><b>`DebugLib` Instances (3)</b></span></p>
+
+@snap[north-west span-75]
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br><br><br><br>&nbsp;</span></p>
+@box[bg-ubuntu text-white my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.70em; font-family:Consolas; " >&nbsp;&nbsp;PeiDxeDebugLibReportStatusCode<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+@snap[north-west span-100]
 <br>
 <br>
+<br>
+<br>
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br>&nbsp;</span></p>
+@box[bg-green-pp text-white my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.70em; font-family:Consolas; " >&nbsp;&nbsp;<br><br><br><br><br><br><br><br><br><br><br><br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+@snap[north-west span-90]
+<br>
+<br>
+<br>
+<br>
+<p style="line-height:40%" align="left"><span style="font-size:0.650em; font-family:Consolas; " ><br><br><br>&nbsp;</span></p>
 <ul>
-  <li><span style="font-size:0.9em">Sends ASCII String  specified by  Description Value to the `ReportStatusCode()`  </span></li>
-  <li><span style="font-size:0.9em">May also use the `SerialPortLib` class to send debug output to serial port</span></li>
-  <li><span style="font-size:0.9em">`BaseDebugLibNull`  - Resolves references </span></li>
+  <li><span style="font-size:0.8em">Sends ASCII String  specified by  Description Value to the `ReportStatusCode()`  </span></li>
+  <li><span style="font-size:0.8em">May also use the `SerialPortLib` class to send debug output to serial port</span></li>
+  <li><span style="font-size:0.8em">`BaseDebugLibNull`  - Resolves references </span></li>
 </ul>
 <br>
-<p align="center"><span style="font-size:0.9em"><font color="blue">Default for most platforms</font></span></p>
+<br>
+<p align="center"><span style="font-size:0.8em"><font color="yellow">Default for most platforms</font></span></p>
+@snapend
 
+@snap[south-east span-20]
+![implementation](/assets/images/Implementation.png)
+@snapend
+
+
+
+@snap[south-east span-20]
+<p style="line-height:40%" align="left">@color[black](&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3)&nbsp;&nbsp;&nbsp;<br><br>&nbsp;</p>
+<br>
+@snapend
 
 
 Note:
 - So there are a total of 5 open source debug lib instances
-- The ones we did not cover are “DebugLibNull” – does nothing and 
+- The ones we did not cover are "DebugLibNull" - does nothing and 
 
-- “PeiDxeDebugLibReportStatusCode “  is a form of  “DebugLibReportStatusCode”  that wraps into the report status code library the same way that the serial port one does and may send ASCII String  specified by Description Value that is sent to ReportStatusCode() function
+- "PeiDxeDebugLibReportStatusCode "  is a form of  'DebugLibReportStatusCode"  that wraps into the report status code library the same way that the serial port one does and may send ASCII String  specified by Description Value that is sent to ReportStatusCode() function
 
 
 
-- So there may be other instances in your workspace. It is easy to develop a new  library instance. There is no requirement that someone tell us that they’ve done it. 
+- So there may be other instances in your workspace. It is easy to develop a new  library instance. There is no requirement that someone tell us that they've done it. 
 - So what you want to do is search for the library name equals in the INF file.
-- Example search the INF files inyour workspace for the string “LIBRARY_CLASS                  = DebugLib” 
+- Example search the INF files in your workspace for the string "LIBRARY_CLASS                  = DebugLib"
 
 - the ASCII string specified by Description is 
   also passed to the handler that displays the POST card value.  Some 
@@ -668,9 +1023,38 @@ Note:
   to a POST card device.  Other implementations may send Value to ReportStatusCode(), 
 
 
----?image=/assets/images/slides/Slide36.JPG
+
+---
 @title[Changing Library Instances ]
-<p align="right"><span class="gold" >Changing Library Instances </span></p>
+<p align="right"><span class="gold" ><b>Changing Library Instances </b></span></p>
+
+
+@snap[north-west span-90 rounded fragment]
+<br>
+<br>
+<p align="left" style="line-height:80%"><span style="font-size:0.9em; ">@color[yellow](Change common library instances in the platform DSC by Module type)</span></p>
+@box[bg-grey-05 text-white rounded my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " >&nbsp;&nbsp;[LibraryClasses.common.IA32]&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;DebugLib|MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+
+@snap[north-west span-90 rounded fragment]
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<p align="left" style="line-height:80%"><span style="font-size:0.9em; ">@color[yellow](Change a single module's library instance in the platform DSC)</span></p>
+@box[bg-grey-05 text-white rounded my-box-pad2  ](<p style="line-height:40%" align="left"><span style="font-size:0.450em; font-family:Consolas; " >&nbsp;&nbsp;MyPath/MyModule.inf&nbsp;{<br>&nbsp;&nbsp;&lt;LibraryClasses&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;DebugLib|MdePkg/Library/BaseDebugLibSerialPort.inf<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;</span></p>)
+<br>
+@snapend
+
+
+
+
+
 
 Note:
 - Change common library instances in the platform DSC by module type
@@ -678,7 +1062,7 @@ Note:
   [LibraryClasses.common.IA32]
     DebugLib|MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
 </pre>
-- Change a single module’s library instance in the platform DSC
+- Change a single module's library instance in the platform DSC
 <pre>
   MyPath/MyModule.inf {
     <LibraryClasses>
@@ -688,39 +1072,15 @@ Note:
 - another Note: Use a different debugging library instance only on the module in question (managing size changes)
 
 
-
-
-+++?image=/assets/images/slides/Slide37.JPG
-<!-- .slide: data-background-transition="none" -->
-<!-- .slide: data-transition="none" -->
-@title[Changing Library Instances 02 ]
-<p align="right"><span class="gold" >Changing Library Instances </span></p>
-
-
-
-Note:
-- Change common library instances in the platform DSC by module type
-<pre>
-  [LibraryClasses.common.IA32]
-    DebugLib|MdePkg/Library/BaseDebugLibNull/BaseDebugLibNull.inf
-</pre>
-- Change a single module’s library instance in the platform DSC
-<pre>
-  MyPath/MyModule.inf {
-    <LibraryClasses>
-     DebugLib|MdePkg/Library/BaseDebugLibSerialPort.inf
-  }
-</pre>
-- another Note: Use a different debugging library instance only on the module in question (managing size changes)
 
 ---?image=/assets/images/slides/Slide_LabSec.JPG
 @title[Lab 3: Library Instances for Debugging]
 <br>
 <br>
-<p align="Left"><span class="gold" >Lab 3: Library Instances for Debugging</span></p>
+<p align="Left"><span class="gold" ><b>Lab 3: Library Instances for Debugging</b></span></p>
 <br>
 <div class="left1">
-<span style="font-size:0.8em" >In this lab,  you’ll learn how to add specific debug library instances. </span><br>
+<span style="font-size:0.8em" >In this lab,  you'll learn how to add specific debug library instances. </span><br>
 </div>
 <div class="right1">
 <span style="font-size:0.8em" >&nbsp;  </span>
@@ -731,7 +1091,7 @@ Note:
 
 ---
 @title[Lab 3: Using Library Instances for Debugging]
-<p align="right"><span class="gold" >Lab 3: Using Library Instances for Debugging</span></p>
+<p align="right"><span class="gold" ><b>Lab 3: Using Library Instances for Debugging</b></span></p>
 <br>
 <br>
 <span style="font-size:0.7em" >Open `C:/FW/edk2/Nt32Pkg/Nt32Pkg.dsc` </span><br>
@@ -751,7 +1111,7 @@ Lab 3 Changing Library
 
 ---?image=/assets/images/slides/Slide40.JPG
 @title[Lab 3: Build, Run and Test Result]
-<p align="right"><span class="gold" >Lab 3: Build, Run and Test Result</span></p>
+<p align="right"><span class="gold" ><b>Lab 3: Build, Run and Test Result</b></span></p>
 <div class="left">
 <span style="font-size:0.8em" >At the VS Command Prompt</span>
 <pre>
@@ -778,10 +1138,10 @@ Notice the Debug messages output to the console
 @title[Lab 4: Serial port Instance of DebugLib]
 <br>
 <br>
-<p align="Left"><span class="gold" >Lab 4: Null Instance of `DebugLib`</span></p>
+<p align="Left"><span class="gold" ><b>Lab 4: Null Instance of `DebugLib`</b></span></p>
 <br>
 <div class="left1">
-<span style="font-size:0.8em" >In this lab,  you’ll change the `DebugLib` to the Null instance. </span>
+<span style="font-size:0.8em" >In this lab,  you'll change the `DebugLib` to the Null instance. </span>
 </div>
 <div class="right1">
 <span style="font-size:0.8em" >&nbsp;  </span>
@@ -794,7 +1154,7 @@ The DEBUG output for SampleApp is no debug output
 
 ---
 @title[Lab 4: Using Serial port Library Instances]
-<p align="right"><span class="gold" >Lab 4: Using Serial port Library Instances</span></p>
+<p align="right"><span class="gold" ><b>Lab 4: Using Serial port Library Instances</b></span></p>
 <br>
 <span style="font-size:0.7em" >Open `C:/FW/edk2/Nt32Pkg/Nt32Pkg.dsc` </span><br>
 <span style="font-size:0.7em" >Replace `SampleApp/SampleApp.inf { . . .}` with the following:</span><br>
@@ -812,7 +1172,7 @@ Lab 4
 
 ---?image=/assets/images/slides/Slide43.JPG
 @title[Lab 4: Build, Run and Test Result]
-<p align="right"><span class="gold" >Lab 4: Build, Run and Test Result</span></p>
+<p align="right"><span class="gold" ><b>Lab 4: Build, Run and Test Result</b></span></p>
 <br>
 <div class="left">
 <span style="font-size:0.8em" >At the VS Command Prompt</span>
@@ -842,10 +1202,10 @@ Notice the Debug messages output to the console
 @title[Lab 5: Debugging EDK II with VS Debugger]
 <br>
 <br>
-<p align="Left"><span class="gold" >Lab 5: Debugging EDK II with VS Debugger</span></p>
+<p align="Left"><span class="gold" ><b>Lab 5: Debugging EDK II with VS Debugger</b></span></p>
 <br>
 <div class="left1">
-<span style="font-size:0.8em" >In this lab,  you’ll learn how setup the VS to debug the EDK II Nt32 emulation</span>
+<span style="font-size:0.8em" >In this lab,  you'll learn how setup the VS to debug the EDK II Nt32 emulation</span>
 </div>
 <div class="right1">
 <span style="font-size:0.8em" >&nbsp;  </span>
@@ -856,9 +1216,9 @@ Note:
 
 ---?image=/assets/images/slides/Slide45.JPG
 @title[Lab 5: Nt32 Debug with VS]
-<p align="right"><span class="gold" >Lab 5: Nt32 Debug with VS</span></p>
+<p align="right"><span class="gold" ><b>Lab 5: Nt32 Debug with VS</b></span></p>
 <br>
-<span style="font-size:0.7em" >Edit the `SampleApp.c`and add the “`ASSERT_EFI_ERROR`” Statement :  </span><br>
+<span style="font-size:0.7em" >Edit the `SampleApp.c`and add the "`ASSERT_EFI_ERROR`" Statement :  </span><br>
 ```c
    ASSERT_EFI_ERROR(0x80000000);
 ```
@@ -875,7 +1235,7 @@ Lab 5, add ASSERT
 
 ---?image=/assets/images/slides/Slide46.JPG
 @title[Lab 5: Nt32 Debug with VS ]
-<p align="right"><span class="gold" >Lab 5: Nt32 Debug with VS </span></p>
+<p align="right"><span class="gold" ><b>Lab 5: Nt32 Debug with VS </b></span></p>
 <br>
 <div class="left">
 <span style="font-size:0.8em" >At the VS Command Prompt</span>
@@ -898,7 +1258,7 @@ Lab 5, add ASSERT
 
 ---?image=/assets/images/slides/Slide47.JPG
 @title[Lab 5: Nt32 Debug with VS 02]
-<p align="right"><span class="gold" >Lab 5: Nt32 Debug with VS </span></p>
+<p align="right"><span class="gold" ><b>Lab 5: Nt32 Debug with VS </b></span></p>
 
 
 Note:
@@ -907,9 +1267,9 @@ Lab 5, add ASSERT
 
 ---?image=/assets/images/slides/Slide48.JPG
 @title[Lab 5: Nt32 Debug with VS- CPU bp]
-<p align="right"><span class="gold" >Lab 5: Nt32 Debug with VS</span></p>
+<p align="right"><span class="gold" ><b>Lab 5: Nt32 Debug with VS</b></span></p>
 <br>
-<p style="line-height:60%"><span style="font-size:0.7em" >Edit the `SampleApp.c` and add the “`CpuBreakpoint();`” Statement and comment out the “`ASSERT`”:  </span></p>
+<p style="line-height:60%"><span style="font-size:0.7em" >Edit the `SampleApp.c` and add the "`CpuBreakpoint();`" Statement and comment out the "`ASSERT`":  </span></p>
 ```c
     CpuBreakpoint();
 ```
@@ -927,7 +1287,7 @@ Lab 5, add CpuBreakpoint();
 
 ---?image=/assets/images/slides/Slide49.JPG
 @title[Lab 5: Nt32 Debug with VS ]
-<p align="right"><span class="gold" >Lab 5: Nt32 Debug with VS </span></p>
+<p align="right"><span class="gold" ><b>Lab 5: Nt32 Debug with VS </b></span></p>
 <br>
 <div class="left">
 <span style="font-size:0.8em" >At the VS Command Prompt</span>
@@ -951,7 +1311,7 @@ Lab 5  add CpuBreakpoint();
 
 ---?image=/assets/images/slides/Slide50.JPG
 @title[Invoke Windows Visual Studio Debugger ]
-<p align="right"><span class="gold" >Invoke Windows Visual Studio Debugger</span></p>
+<p align="right"><span class="gold" ><b>Invoke Windows Visual Studio Debugger</b></span></p>
 
 
 Note:
@@ -962,7 +1322,7 @@ Note:
 
 ---?image=/assets/images/slides/Slide51.JPG
 @title[Invoke Windows Visual Studio Debugger ]
-<p align="right"><span class="gold" >Invoke Windows Visual Studio Debugger</span></p>
+<p align="right"><span class="gold" ><b>Invoke Windows Visual Studio Debugger</b></span></p>
 
 Note:
 Now the visual studio debugger is debugging the sampleapp function and common debug tasks can be done:
@@ -1045,12 +1405,12 @@ Note:
 @title[Issue: Debugging in Nt32 Emulation with Windows 7 and VS]
 <p align="right"><span class="gold" >Issue:<br>Debugging in Nt32 Emulation with Windows 7 <br>and Visual Studio does not work?</span></p>
 
-<p style="line-height:90%"><span style="font-size:0.9em" >Symptom:  With Windows 7 a CpuBreakpoint() or ASSERT  just exits with an error from the “Build Run” command.  </span></p>
+<p style="line-height:90%"><span style="font-size:0.9em" >Symptom:  With Windows 7 a CpuBreakpoint() or ASSERT  just exits with an error from the "Build Run" command.  </span></p>
 <p style="line-height:60%"><span style="font-size:0.7em" >Link to fix this issue: <a href="https://github.com/tianocore/tianocore.github.io/wiki/NT32#Debugging_in_Nt32_Emulation_with_Windows_7_and_Visual_Studio_does_not_work">wiki- Issue Debugging Nt32 with Windows 7 and Visual Studio </a></span></p>
 <ul>
  <li> <span style="font-size:0.7em" >Run the `RegEdt32` </span> </li>
  <li> <span style="font-size:0.7em" >Navigate to the `HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows NT\CurrentVersion\AeDebug` </span> </li>
- <li> <span style="font-size:0.7em" >Add a string value entry called "`Auto`" with a value of "`1`“ </span> </li>
+ <li> <span style="font-size:0.7em" >Add a string value entry called "`Auto`" with a value of "`1`" </span> </li>
 </ul>
 
 <span style="font-size:0.9em" >Windows 10  Visual Studio does not seem to have this issue </span>
