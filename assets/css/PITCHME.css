@@ -282,6 +282,12 @@ span.aside {
 }
 
 
+.gp-bullet-red{ 
+  color:#A20000;
+  margin-left: 10px; 
+}
+
+
 h6 {
     font-weight: bold;
     font-size: 50%;
@@ -303,6 +309,9 @@ h6 {
 }
 .lt_green {
   color: #87E2A9;
+}
+.lt_green2 {
+  color: #A8ff60;
 }
 .green {
   color:  #00CC99;
