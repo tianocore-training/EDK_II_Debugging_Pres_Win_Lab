@@ -1,7 +1,7 @@
 <!--- @file
   Readme.md for UEFI / EDK II Training EDK II Deugging Pres- /w Windows Lab
 
-  Copyright (c) 2019, Intel Corporation. All rights reserved.<BR>
+  Copyright (c) 2020, Intel Corporation. All rights reserved.<BR>
 
   Redistribution and use in source (original document form) and 'compiled'
   forms (converted to PDF, epub, HTML and other formats) with or without
@@ -29,7 +29,7 @@
 
 -->
 
-# EDK_II_Debugging_Win_pres
+# EDK_II_Debugging_Win_pres_Lab
 Tips and Tricks for Debugging using EDK II w/ Windows Labs
 
 To see the Slides goto https://gitpitch.com/tianocore-training/EDK_II_Debugging_Pres_Win_Lab/master#/
